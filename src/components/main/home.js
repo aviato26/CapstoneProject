@@ -10,7 +10,7 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      query: props.title,
+      query: '',
       movieDetails: [],
       tweets: [],
       trailer: ''
@@ -53,7 +53,6 @@ toMyList = (e) => {
 }
 
   render(){
-    console.log(this.state)
     return(
       <div>
         <h1>Movie Bin</h1>
