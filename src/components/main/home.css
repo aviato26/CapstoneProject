@@ -21,6 +21,10 @@ iframe {
   animation-fill-mode: forwards;
 }
 
+.navbar-nav {
+  text-align: center;
+}
+
 li {
   list-style: none;
 }
@@ -60,8 +64,28 @@ input:focus {
 
 .listbutton {
   display: inline-block;
-  margin: 1%
 }
+
+button:focus {
+  outline: none
+}
+
+/* Media Querys */
+
+@media only screen and (max-width: 425px) {
+    .navbar {
+      justify-content: center;
+      margin: 2% 0
+    }
+
+    .col-sm-12 form, .col-sm-12 {
+      display: flex;
+      justify-content: center;
+      margin: 5% 0
+    }
+ }
+
+/* Animations */
 
 @keyframes lighten {
   from {box-shadow: 2px 2px 5px}

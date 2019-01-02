@@ -65,26 +65,26 @@ toMyList = (e) => {
           </Col>
         </Row>
         <Row>
-          <Col xs='2' lg='2'>
+          <Col sm='12' md='2' lg='2' xl='2'>
             <NavBar />
           </Col>
-            <Col xs='5' lg='6'>
+            <Col sm='12' md='5' lg='6' xl='5'>
               <Search onChange={this.onChange} onSubmit={this.onSubmit} value={this.state.query}/>
             </Col>
-            <Col xs='5' lg='4'>
+            <Col sm='12' md='5' lg='4' xl='5'>
               <ListButton onClick={this.toMyList} />
             </Col>
           </Row>
           <Row>
-          <Col lg={{size: 4, offset: 2}} xs='6' className={this.state.class}>
+          <Col lg={{size: 4, offset: 2}} md='6' xs='12' className={this.state.class, 'text1'}>
             <MovieDetails details={this.state.movieDetails} />
           </Col>
-          <Col lg='6' xs='6' className={this.state.class} style={{padding: 0}}>
+          <Col lg='6' md='6' xs='12' className={this.state.class, 'text2'} style={{padding: 0}}>
             <iframe src={this.state.trailer} />
           </Col>
           </Row>
-        <Row className='tweetpadding'>
-          <Col lg={{ size: 6, offset: 3 }} className={this.state.class}>
+        <Row className='tweetpadding text3'>
+          <Col lg={{ size: 6, offset: 3 }} xs='12' className={this.state.class}>
             <Twitter tweets={this.state.tweets}/>
           </Col>
         </Row>

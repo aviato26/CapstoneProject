@@ -1,23 +1,23 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
+import './home.css';
 import {Link} from 'react-router-dom';
 
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
       collapsed: true
     };
   }
 
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
+  toggleNavbar = (e) => {
+      this.setState({
+        collapsed: !this.state.collapsed
+      });
   }
+
   render() {
     return (
       <div>

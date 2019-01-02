@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
+import {Container, Col, Row} from 'reactstrap';
 //import './register.css';
 import axios from 'axios';
 
@@ -23,16 +24,28 @@ const Login = (props) => {
   }
 
   return(
-    <div>
+    <Container fluid>
         <form onSubmit={submit}>
+        <Row>
           <h1>Movie Bin</h1>
+        </Row>
+        <Row>
           <h2>Log In</h2>
-          <input placeholder='email' ref={(data) => {email = data}} required></input>
-          <input placeholder='password' ref={(data) => {password = data}} required></input>
-          <button className='subButton'>Submit</button>
+        </Row>
+        <Row>
+          <Col lg='7'>
+            <input placeholder='email' ref={(data) => {email = data}} required></input>
+            <input placeholder='password' ref={(data) => {password = data}} required></input>
+            <button className='subButton'>Submit</button>
+          </Col>
+        </Row>
         </form>
-        <Link to='/signup'><button className='button unfold'>Sign Up</button></Link>
-    </div>
+        <Row>
+          <Col>
+            <Link to='/signup'><button className='button unfold'>Sign Up</button></Link>
+          </Col>
+        </Row>
+    </Container>
   )
 }
 

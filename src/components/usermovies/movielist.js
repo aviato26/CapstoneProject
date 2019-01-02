@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import NavBar from '../main/navbar.js';
 import List from './list.js';
 import ModalExample from './modal.js';
+import {Container, Col, Row} from 'reactstrap';
+import './userStyles.css';
 import axios from 'axios';
 
 class MovieList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      movies: [],
+      movies: ['a','s','s','s'],
       details: [],
       title: '',
       modal: false
@@ -60,14 +62,28 @@ class MovieList extends Component{
 
   render(){
     if(this.state.modal){
-      return <ModalExample details={this.state.details} modal={this.state.modal} close={this.close} title={this.state.title}/>
+      return (
+        <ModalExample details={this.state.details} modal={this.state.modal} close={this.close} title={this.state.title}/>
+      )
     }
     return(
-      <div>
-        <h1>Movie Bin</h1>
-        <NavBar />
-        <List movies={this.state.movies} toggle={this.toggle} removeMovie={this.removeMovie}/>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col lg='12'>
+            <h1>Movie Bin</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm='2'>
+            <NavBar />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm='12'>
+            <List movies={this.state.movies} toggle={this.toggle} removeMovie={this.removeMovie}/>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

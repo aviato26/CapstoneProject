@@ -1,0 +1,46 @@
+
+h1 {
+  text-align: center;
+  font-family: cursive;
+}
+
+.subButton {
+  font-family: Apple Chancery, cursive;
+  box-shadow: 1px 1px 5px grey;
+  animation: rShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.subButton:hover {
+  animation: fShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.row {
+  justify-content: center;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+.inlineMovieList {
+  text-align: center;
+  font-family: cursive;
+  font-size: 1.5em
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fShadow {
+  from {box-shadow: 1px 1px 1px grey}
+  to {box-shadow: 5px 5px 5px grey}
+}
+
+@keyframes rShadow {
+  from {box-shadow: 5px 5px 5px grey}
+  to {box-shadow: 1px 1px 1px grey}
+}
