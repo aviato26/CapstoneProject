@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import {Container, Row, Col} from 'reactstrap';
+import './home.css';
 import MovieDetails from './details.js';
 import Search from './search.js';
 import Twitter from './twitter.js';
 import ListButton from './listbutton.js';
-import NavBar from './navbar.js'
+import NavBar from './navbar.js';
 import axios from 'axios';
 
 class Home extends Component {
@@ -13,7 +15,8 @@ class Home extends Component {
       query: '',
       movieDetails: [],
       tweets: [],
-      trailer: ''
+      trailer: '',
+      class: ''
     }
   }
 
@@ -24,12 +27,13 @@ onSubmit = (e) => {
     movieTitle: this.state.query,
   })
   .then(res => {
-    let omdb = Object.entries(res.data.omdb)
-    let tweets = Object.entries(res.data.tweets)
+    let omdb = Object.entries(res.data.omdb).filter((c,i) => i < 10);
+    let tweets = Object.entries(res.data.tweets);
     this.setState({
       movieDetails: [...omdb],
       tweets: [...tweets[0][1]],
-      trailer: `https://youtube.com/embed/${res.data.youtube.items[0].id.videoId}`
+      trailer: `https://youtube.com/embed/${res.data.youtube.items[0].id.videoId}`,
+      class: 'borders'
     })
   })
   .catch(err => console.log(err))
@@ -54,15 +58,37 @@ toMyList = (e) => {
 
   render(){
     return(
-      <div>
-        <h1>Movie Bin</h1>
-        <NavBar />
-        <ListButton onClick={this.toMyList}/>
-        <Search onChange={this.onChange} onSubmit={this.onSubmit} value={this.state.query}/>
-        <MovieDetails details={this.state.movieDetails}/>
-        <iframe src={this.state.trailer} />
-        <Twitter tweets={this.state.tweets}/>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col className='head'>
+            <h1>Movie Bin</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs='2' lg='2'>
+            <NavBar />
+          </Col>
+            <Col xs='5' lg='6'>
+              <Search onChange={this.onChange} onSubmit={this.onSubmit} value={this.state.query}/>
+            </Col>
+            <Col xs='5' lg='4'>
+              <ListButton onClick={this.toMyList} />
+            </Col>
+          </Row>
+          <Row>
+          <Col lg={{size: 4, offset: 2}} xs='6' className={this.state.class}>
+            <MovieDetails details={this.state.movieDetails} />
+          </Col>
+          <Col lg='6' xs='6' className={this.state.class} style={{padding: 0}}>
+            <iframe src={this.state.trailer} />
+          </Col>
+          </Row>
+        <Row className='tweetpadding'>
+          <Col lg={{ size: 6, offset: 3 }} className={this.state.class}>
+            <Twitter tweets={this.state.tweets}/>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 

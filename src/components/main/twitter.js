@@ -1,16 +1,16 @@
 import React from 'react';
+import {Col} from 'reactstrap';
+import './home.css';
 
 const Twitter = (props) => {
   return(
-    <div>
       <ul>
       {
         props.tweets.map((c,i) => {
-          return <li key={i}>{c.text}</li>
+          return <p className='tweetTextStyle'>tweet<li key={i}>{c.text}</li></p>
         })
       }
       </ul>
-    </div>
   )
 }
 

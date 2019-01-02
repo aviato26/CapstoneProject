@@ -1,0 +1,99 @@
+
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border-style: none
+}
+
+.col {
+  padding: 0
+}
+
+.head{
+  text-align: center;
+  font-family: cursive;
+}
+
+.borders {
+  animation: fadein 4s ease;
+  animation: borderfadein 3s ease;
+  animation-fill-mode: forwards;
+}
+
+li {
+  list-style: none;
+}
+
+.tweetTextStyle {
+  font-family: cursive;
+}
+
+.tweetpadding {
+  padding: 2%
+}
+
+input {
+  display: block;
+  height: 2em;
+  border: 1px solid;
+  box-shadow: 2px 2px 5px;
+  animation: darken 1s ease;
+}
+
+input:focus {
+  box-shadow: 15px 15px 15px;
+  animation: lighten 1s ease;
+}
+
+.subButton {
+  font-family: Apple Chancery, cursive;
+  box-shadow: 1px 1px 5px grey;
+  animation: rShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.subButton:hover {
+  animation: fShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.listbutton {
+  display: inline-block;
+  margin: 1%
+}
+
+@keyframes lighten {
+  from {box-shadow: 2px 2px 5px}
+  to {box-shadow: 15px 15px 15px}
+}
+
+@keyframes darken {
+  from {box-shadow: 15px 15px 15px}
+  to {box-shadow: 2px 2px 5px}
+}
+
+
+@keyframes fadein {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes borderfadein {
+  from {
+    box-shadow: 0 0 0
+  }
+  to {
+    box-shadow: 15px 15px 15px grey
+  }
+}
+
+@keyframes fShadow {
+  from {box-shadow: 1px 1px 1px grey}
+  to {box-shadow: 5px 5px 5px grey}
+}
+
+@keyframes rShadow {
+  from {box-shadow: 5px 5px 5px grey}
+  to {box-shadow: 1px 1px 1px grey}
+}

@@ -1,5 +1,15 @@
+/*
 .App {
   text-align: center;
+  height: 100vh;
+  border-style: inset;
+  border-width: 1em
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%
 }
 
 ul {
@@ -10,6 +20,8 @@ ul {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
+
+
 
 .App-header {
   background-color: #282c34;
@@ -25,12 +37,8 @@ ul {
 .App-link {
   color: #61dafb;
 }
+*/
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app {
+  width: 100%;
 }

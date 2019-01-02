@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+//import './register.css';
 import axios from 'axios';
 
 const Signup = (props) => {
@@ -34,9 +35,9 @@ const Signup = (props) => {
         <input placeholder='email' ref={(text) => {email = text}} required></input>
         <input placeholder='password' ref={(text) => {password = text}} required></input>
         <input placeholder='verify password' ref={(text) => {validatePassword = text}} required></input>
-        <button></button>
+        <button className='subButton'>Submit</button>
       </form>
-      <Link to='/login'><button>Log In</button></Link>
+      <Link to='/login'><button className='button unfold'>Log In</button></Link>
     </div>
   )
 }

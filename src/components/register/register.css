@@ -1,0 +1,93 @@
+
+h1, h2 {
+  font-family: cursive;
+}
+
+h2 {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+input {
+  display: block;
+  width: 15%;
+  height: 2em;
+  border: 1px solid;
+  box-shadow: 2px 2px 5px;
+  animation: darken 1s ease;
+}
+
+input:focus {
+  box-shadow: 15px 15px 15px;
+  animation: lighten 1s ease;
+}
+
+.button:hover {
+  box-shadow: 5px 5px 15px;
+}
+
+.unfold:hover {
+  animation: unfold 1s ease;
+  animation-duration: infinite;
+  animation-fill-mode: forwards;
+}
+
+.title {
+  height: 100%
+}
+
+.subButton {
+  margin: 5%;
+  width: 15%;
+  font-family: Apple Chancery, cursive;
+  box-shadow: 1px 1px 5px grey;
+  animation: rShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.subButton:hover {
+  animation: fShadow 1s ease;
+  animation-fill-mode: forwards
+}
+
+.button {
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px grey;
+  font-family: Apple Chancery, cursive;
+  margin: 10%;
+  width: 20%;
+  height: 5%;
+  animation: fold 1s ease;
+  animation-duration: infinite;
+  animation-fill-mode: forwards
+}
+
+@keyframes lighten {
+  from {box-shadow: 2px 2px 5px}
+  to {box-shadow: 15px 15px 15px}
+}
+
+@keyframes darken {
+  from {box-shadow: 15px 15px 15px}
+  to {box-shadow: 2px 2px 5px}
+}
+
+@keyframes unfold {
+  from {border-radius: 50%}
+  to {border-radius: 0%}
+}
+
+@keyframes fold {
+  from {border-radius: 0%}
+  to {border-radius: 50%}
+}
+
+@keyframes fShadow {
+  from {box-shadow: 1px 1px 1px grey}
+  to {box-shadow: 5px 5px 5px grey}
+}
+
+@keyframes rShadow {
+  from {box-shadow: 5px 5px 5px grey}
+  to {box-shadow: 1px 1px 1px grey}
+}

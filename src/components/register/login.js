@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
+//import './register.css';
 import axios from 'axios';
 
 const Login = (props) => {
@@ -22,18 +23,16 @@ const Login = (props) => {
   }
 
   return(
-    <BrowserRouter>
     <div>
         <form onSubmit={submit}>
           <h1>Movie Bin</h1>
           <h2>Log In</h2>
           <input placeholder='email' ref={(data) => {email = data}} required></input>
           <input placeholder='password' ref={(data) => {password = data}} required></input>
-          <button></button>
+          <button className='subButton'>Submit</button>
         </form>
-        <Link to='/signup'><button>Sign Up</button></Link>
+        <Link to='/signup'><button className='button unfold'>Sign Up</button></Link>
     </div>
-    </BrowserRouter>
   )
 }
 

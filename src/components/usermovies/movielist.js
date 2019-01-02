@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import NavBar from '../main/navbar.js';
 import List from './list.js';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import ModalExample from './modal.js';
 import axios from 'axios';
 
 class MovieList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      movies: ['aquaman', 'sam'],
+      movies: [],
+      details: [],
       title: '',
-      movieDetails: [],
-      model: false,
-      backdrop: true
+      modal: false
     }
   }
 
@@ -37,42 +36,37 @@ class MovieList extends Component{
   }
 
   toggle = (e) => {
-    this.setState({
-      modal: !this.state.modal,
+    let movieTitle = e.target.textContent;
+
+    axios.post('/details', {
       title: e.target.textContent
-    });
-  }
-
-  changeBackdrop = (e) => {
-    let value = e.target.value;
-    if (value !== 'static') {
-      value = JSON.parse(value);
-    }
-    this.setState({ backdrop: value });
-  }
-
-  getAllDetails = (e) => {
-    axios.post('mylist')
-    .then(res => console.log(res))
+    })
+    .then(res => {
+      let movieData = Object.entries(res.data)
+      this.setState({
+        details: [...movieData],
+        modal: !this.state.modal,
+        title: movieTitle
+      })
+    })
     .catch(err => console.log(err))
   }
 
+  close = (e) => {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
   render(){
+    if(this.state.modal){
+      return <ModalExample details={this.state.details} modal={this.state.modal} close={this.close} title={this.state.title}/>
+    }
     return(
       <div>
         <h1>Movie Bin</h1>
         <NavBar />
-        <List movies={this.state.movies} getTitle={this.props.getTitle} toggle={this.toggle} removeMovie={this.removeMovie}/>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop={this.state.backdrop}>
-       <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-       <ModalBody>
-         {this.state.title}
-       </ModalBody>
-       <ModalFooter>
-         <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-       </ModalFooter>
-     </Modal>
+        <List movies={this.state.movies} toggle={this.toggle} removeMovie={this.removeMovie}/>
       </div>
     )
   }
