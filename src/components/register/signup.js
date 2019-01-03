@@ -20,8 +20,10 @@ const Signup = (props) => {
       validatePassword: validatePassword.value
     })
     .then(res => {
-      if(res.data === "created new user"){
+      if(res.data === 'new user created'){
         props.history.replace('/home')
+      } else {
+        console.log('this form seems to be filled out incorrectly')
       }
     })
     e.target.reset();

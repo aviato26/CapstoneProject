@@ -76,14 +76,14 @@ toMyList = (e) => {
             </Col>
           </Row>
           <Row>
-          <Col lg={{size: 4, offset: 2}} md='6' xs='12' className={this.state.class, 'text1'}>
+          <Col lg={{size: 4, offset: 2}} md='6' xs='12' className={this.state.class}>
             <MovieDetails details={this.state.movieDetails} />
           </Col>
-          <Col lg='6' md='6' xs='12' className={this.state.class, 'text2'} style={{padding: 0}}>
+          <Col lg='6' md='6' xs='12' className={this.state.class} style={{padding: 0}}>
             <iframe src={this.state.trailer} />
           </Col>
           </Row>
-        <Row className='tweetpadding text3'>
+        <Row className='tweetpadding'>
           <Col lg={{ size: 6, offset: 3 }} xs='12' className={this.state.class}>
             <Twitter tweets={this.state.tweets}/>
           </Col>

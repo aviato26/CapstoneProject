@@ -7,7 +7,7 @@ const Twitter = (props) => {
       <ul>
       {
         props.tweets.map((c,i) => {
-          return <p className='tweetTextStyle'>tweet<li key={i}>{c.text}</li></p>
+          return <p className='tweetTextStyle' key={i+1}>tweet<li key={i}>{c.text}</li></p>
         })
       }
       </ul>

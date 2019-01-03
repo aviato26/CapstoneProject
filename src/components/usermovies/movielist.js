@@ -10,7 +10,7 @@ class MovieList extends Component{
   constructor(props){
     super(props);
     this.state = {
-      movies: ['a','s','s','s'],
+      movies: [],
       details: [],
       title: '',
       modal: false
