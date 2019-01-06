@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {Container, Col, Row} from 'reactstrap';
 //import './register.css';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import axios from 'axios';
 const Login = (props) => {
   let email = null;
   let password = null;
-  let userFound = false;
 
   const submit = (e) => {
     e.preventDefault();

@@ -14,6 +14,7 @@
     "reactstrap": "^6.5.0"
   },
   "scripts": {
+    "install": "npm install --prefix ./server",
     "start": "concurrently \"react-scripts start\" \"npm run nodeserver\"",
     "client": "react-scripts start",
     "nodeserver": "node ./server/server.js",

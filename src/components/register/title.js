@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
-import Signup from './signup.js';
-import Login from './login.js';
+import React from 'react';
 import {Container, Col, Row} from 'reactstrap';
 import './register.css';
-import { Switch, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const TitlePage = () => {
   return(

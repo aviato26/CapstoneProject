@@ -9,7 +9,6 @@ const Signup = (props) => {
   let user = null;
   let email = null;
   let password = null;
-  let validatePassword = null;
 
   const SignUpData = (e) => {
     e.preventDefault();

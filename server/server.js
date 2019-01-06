@@ -10,6 +10,7 @@ const parser = require('body-parser');
 const movies = require('./models/movies.js');
 const users = require('./models/users.js');
 const session = require('express-session');
+const path = require('path');
 const port = process.env.PORT || 5000;
 let db = mongoose.connection;
 
@@ -33,9 +34,11 @@ var sess = {
   cookie: {secure: false}
 }
 
-if (app.get('env') === 'production') {
-  app.set('trust proxy', 1) // trust first proxy
-  sess.cookie.secure = true // serve secure cookies
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('./build'));
+  app.get('*', (req, res) =>{
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'))
+  })
 }
 
 app.use(session(sess))

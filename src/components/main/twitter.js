@@ -1,5 +1,4 @@
 import React from 'react';
-import {Col} from 'reactstrap';
 import './home.css';
 
 const Twitter = (props) => {
