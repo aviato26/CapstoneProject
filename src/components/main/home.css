@@ -15,10 +15,19 @@ iframe {
   font-family: cursive;
 }
 
+.navItem {
+  font-size: 1.2em
+}
+
 .borders {
   animation: fadein 4s ease;
   animation: borderfadein 3s ease;
   animation-fill-mode: forwards;
+}
+
+.overflow {
+    background-image: linear-gradient(top, white, lightgrey);
+    background-repeat: no-repeat;
 }
 
 .navbar-nav {
@@ -34,7 +43,7 @@ li {
 }
 
 .tweetpadding {
-  padding: 2%
+  padding-top: 2%
 }
 
 input {
@@ -74,6 +83,12 @@ button:focus {
   background-color: whitesmoke;
 }
 
+ .warning {
+   display: none;
+   font-family: fantasy;
+   color: red
+ }
+
 /* Media Querys */
 
 @media only screen and (max-width: 425px) {
@@ -96,6 +111,23 @@ button:focus {
      height: 330px
    }
  }
+
+  @media only screen and (max-width: 767px) {
+    .container-fluid {
+      background-image: linear-gradient(top, white, lightgrey);
+      background-repeat: no-repeat;
+    }
+  }
+
+  @media only screen and (min-width: 1750px) {
+    iframe {
+      height: 650px;
+    }
+    .briefDetails {
+      height: 350px
+    }
+  }
+
 /* Animations */
 
 @keyframes lighten {

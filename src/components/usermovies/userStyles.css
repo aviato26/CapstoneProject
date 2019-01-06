@@ -16,6 +16,10 @@ h1 {
   animation-fill-mode: forwards
 }
 
+.list-container {
+  height: 100%
+}
+
 .row {
   justify-content: center;
 }
@@ -30,9 +34,28 @@ h1 {
   font-size: 1.5em
 }
 
+.inlineMovieList:hover {
+  color: blue
+}
+
 .list {
   display: flex;
   justify-content: center;
+}
+
+.modal {
+  font-family: cursive;
+}
+
+.details {
+  display: none
+}
+
+@media only screen and (max-width: 425px) {
+  .details {
+    display: block;
+    font-family: fantasy;
+  }
 }
 
 @keyframes fShadow {

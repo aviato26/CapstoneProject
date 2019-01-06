@@ -17,14 +17,18 @@ const Login = (props) => {
     })
     .then(res => {
       if(res.data !== ''){
+        sessionStorage.auth = 'good to go';
         props.history.replace('/home')
       }
+    })
+    .catch(err => {
+      document.querySelector('h3').style.display = 'block'
     })
     e.target.reset();
   }
 
   return(
-    <Container fluid>
+    <Container fluid className='register-container'>
         <form onSubmit={submit}>
         <Row>
           <h1>Movie Bin</h1>
@@ -43,6 +47,7 @@ const Login = (props) => {
         <Row>
           <Col>
             <Link to='/signup'><button className='button unfold'>Sign Up</button></Link>
+            <h3>User was not found</h3>
           </Col>
         </Row>
     </Container>

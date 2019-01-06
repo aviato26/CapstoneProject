@@ -25,10 +25,10 @@ class NavBar extends React.Component {
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
-              <NavItem>
+              <NavItem className='navItem'>
                 <Link to='/home' className='tweetTextStyle'>Home</Link>
               </NavItem>
-              <NavItem>
+              <NavItem className='navItem'>
                 <Link to='/mylist' className='tweetTextStyle'>My Movies</Link>
               </NavItem>
             </Nav>

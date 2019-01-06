@@ -16,7 +16,8 @@ class Home extends Component {
       movieDetails: [],
       tweets: [],
       trailer: '',
-      class: ''
+      class: '',
+      overflow: ''
     }
   }
 
@@ -33,7 +34,8 @@ onSubmit = (e) => {
       movieDetails: [...omdb],
       tweets: [...tweets[0][1]],
       trailer: `https://youtube.com/embed/${res.data.youtube.items[0].id.videoId}`,
-      class: 'borders'
+      class: 'borders',
+      overflow: 'overflow'
     })
   })
   .catch(err => console.log(err))
@@ -52,46 +54,47 @@ toMyList = (e) => {
     post: 'to my list',
     movieTitle: this.state.query
   })
-  .then(res => console.log(res))
+  .then(res => {
+    console.log(res.data)
+  })
   .catch(err => console.log(err))
 }
 
-  render(){
-    return(
-      <Container fluid>
-        <Row>
-          <Col className='head'>
-            <h1>Movie Bin</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm='12' md='2' lg='2' xl='2'>
-            <NavBar />
-          </Col>
-            <Col sm='12' md='5' lg='6' xl='5'>
-              <Search onChange={this.onChange} onSubmit={this.onSubmit} value={this.state.query}/>
-            </Col>
-            <Col sm='12' md='5' lg='4' xl='5'>
-              <ListButton onClick={this.toMyList} />
+    render(){
+      return(
+        <Container fluid className={this.state.overflow}>
+          <Row>
+            <Col className='head'>
+              <h1>Movie Bin</h1>
             </Col>
           </Row>
           <Row>
-          <Col lg={{size: 4, offset: 2}} md='6' xs='12' className={this.state.class}>
-            <MovieDetails details={this.state.movieDetails} />
-          </Col>
-          <Col lg='6' md='6' xs='12' className={this.state.class} style={{padding: 0}}>
-            <iframe src={this.state.trailer} />
-          </Col>
+            <Col sm='12' md='2' lg='2' xl='2'>
+              <NavBar />
+            </Col>
+              <Col sm='12' md='5' lg='6' xl='5'>
+                <Search onChange={this.onChange} onSubmit={this.onSubmit} value={this.state.query}/>
+              </Col>
+              <Col sm='12' md='5' lg='4' xl='5'>
+                <ListButton onClick={this.toMyList} />
+              </Col>
+            </Row>
+            <Row>
+            <Col lg={{size: 4, offset: 2}} md='6' xs='12' className={`${this.state.class} briefDetails`}>
+              <MovieDetails details={this.state.movieDetails} />
+            </Col>
+            <Col lg='6' md='6' xs='12' className={this.state.class} style={{padding: 0}}>
+              <iframe src={this.state.trailer} />
+            </Col>
+            </Row>
+          <Row className='tweetpadding'>
+            <Col lg={{ size: 6, offset: 3 }} xs='12' className={this.state.class}>
+              <Twitter tweets={this.state.tweets}/>
+            </Col>
           </Row>
-        <Row className='tweetpadding'>
-          <Col lg={{ size: 6, offset: 3 }} xs='12' className={this.state.class}>
-            <Twitter tweets={this.state.tweets}/>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
-
+        </Container>
+      )
+    }
 }
 
 export default Home;

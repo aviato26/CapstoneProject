@@ -16,21 +16,22 @@ const Signup = (props) => {
     axios.post('/signup', {
       user: user.value,
       email: email.value,
-      password: password.value,
-      validatePassword: validatePassword.value
+      password: password.value
     })
     .then(res => {
       if(res.data === 'new user created'){
+        sessionStorage.auth = 'good to go';
         props.history.replace('/home')
       } else {
-        console.log('this form seems to be filled out incorrectly')
+          document.querySelector('h3').style.display = 'block'
       }
     })
+    .catch(err => console.log(err))
     e.target.reset();
   }
 
   return(
-    <Container>
+    <Container fluid className='register-container'>
       <form onSubmit={SignUpData}>
       <Row>
         <Col>
@@ -47,7 +48,6 @@ const Signup = (props) => {
           <input placeholder='username' ref={(text) => {user = text}} required></input>
           <input placeholder='email' ref={(text) => {email = text}} required></input>
           <input placeholder='password' ref={(text) => {password = text}} required></input>
-          <input placeholder='verify password' ref={(text) => {validatePassword = text}} required></input>
           <button className='subButton'>Submit</button>
         </Col>
       </Row>
@@ -55,6 +55,7 @@ const Signup = (props) => {
       <Row>
         <Col>
           <Link to='/login'><button className='button unfold'>Log In</button></Link>
+          <h3>Please make sure all inputs are filled out <br></br>email does not need to be valid but must be in a valid email format ***@***.com</h3>
         </Col>
       </Row>
     </Container>

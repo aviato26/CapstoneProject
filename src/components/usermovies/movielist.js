@@ -44,7 +44,7 @@ class MovieList extends Component{
       title: e.target.textContent
     })
     .then(res => {
-      let movieData = Object.entries(res.data)
+      let movieData = Object.entries(res.data).filter(c => c[0] !== 'Poster' && c[0] !== 'Ratings' && c[0] !== 'Response')
       this.setState({
         details: [...movieData],
         modal: !this.state.modal,
@@ -67,7 +67,7 @@ class MovieList extends Component{
       )
     }
     return(
-      <Container fluid>
+      <Container fluid className='list-container'>
         <Row>
           <Col lg='12'>
             <h1>Movie Bin</h1>
@@ -76,6 +76,7 @@ class MovieList extends Component{
         <Row>
           <Col sm='2'>
             <NavBar />
+            <p className='details'>Click on title for details</p>
           </Col>
         </Row>
         <Row>

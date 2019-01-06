@@ -29,7 +29,8 @@ app.use((req, res, next) => {
 var sess = {
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {secure: false}
 }
 
 if (app.get('env') === 'production') {
@@ -43,7 +44,7 @@ app.post('/home', (req, res, next) => {
   if(req.body.post === 'to my list'){
       movies.create({user: req.session.userId ,title: req.body.movieTitle}, (err) => {
         if(err){
-          throw err
+          res.send('please enter movie title before adding to movie list')
           next()
         }
       })
@@ -124,7 +125,7 @@ app.post('/home', (req, res, next) => {
      if(err || !user){
        let err = new Error('wrong email or password');
        err.status = 401;
-       return next(err)
+       next(err)
      }
      else {
        req.session.userId = user._id;
