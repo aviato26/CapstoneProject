@@ -6,7 +6,6 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "concurrently": "^4.1.0",
-    "mbserver": "file:server",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
