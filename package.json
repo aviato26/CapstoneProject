@@ -1,34 +1,28 @@
 {
-  "name": "capstoneproject",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.18.0",
-    "bootstrap": "^4.2.1",
-    "concurrently": "^4.1.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3",
-    "reactstrap": "^6.5.0"
-  },
+  "name": "mbserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "install": "npm install --prefix ./server",
-    "start": "concurrently \"react-scripts start\" \"npm run nodeserver\"",
-    "client": "react-scripts start",
-    "nodeserver": "node ./server/server.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "install": "npm install --prefix /client",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node server.js\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.4.0",
+    "request": "^2.88.0",
+    "twit": "^2.2.11"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "proxy": "http://localhost:5000"
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }
