@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## API keys are needed
+please set api keys in the keys.js file, the omdb, twitter, youtube and mongoURI keys will be needed to use this app
+
 ## Available Scripts
 
 In the project directory, you can run:
