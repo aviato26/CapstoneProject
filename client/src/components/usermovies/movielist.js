@@ -6,6 +6,7 @@ import {Container, Col, Row} from 'reactstrap';
 import './userStyles.css';
 import axios from 'axios';
 
+
 class MovieList extends Component{
   constructor(props){
     super(props);
@@ -28,7 +29,7 @@ class MovieList extends Component{
   };
 
   componentDidMount(){
-    axios('/mylist')
+    axios.get('/mylist')
     .then(res => {
       this.setState({
         movies: res.data.map(c => c.title)

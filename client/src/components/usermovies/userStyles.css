@@ -26,11 +26,12 @@ h1 {
 
 .navbar {
   justify-content: center;
+  margin-bottom: 5%
 }
 
 .inlineMovieList {
   text-align: center;
-  font-family: cursive;
+  font-family: fantasy;
   font-size: 1.5em
 }
 
@@ -44,11 +45,12 @@ h1 {
 }
 
 .modal {
-  font-family: cursive;
+  font-family: fantasy;
 }
 
 .details {
-  display: none
+  display: block;
+  font-family: fantasy;
 }
 
 @media only screen and (max-width: 425px) {

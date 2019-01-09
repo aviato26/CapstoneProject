@@ -14,7 +14,7 @@ const path = require('path');
 const port = process.env.PORT || 5000;
 let db = mongoose.connection;
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.MONGODB_URI)
 .then(() => console.log('connection to mongo succesfull'))
 .catch((err) => console.log(err))
 
@@ -34,14 +34,26 @@ var sess = {
   cookie: {secure: false}
 }
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
-  app.get('*', (req, res) =>{
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  })
-}
-
 app.use(session(sess))
+
+// routes
+
+app.get('/mylist', (req, res, next) => {
+  movies.find({user: req.session.userId}, (err) => {
+    if(err){
+      return res.send(err)
+      next()
+    }
+  })
+  .then(data => {
+    return res.send(data)
+    next()
+  })
+  .catch(err => {
+    return console.log(err)
+    next()
+  })
+})
 
 app.post('/home', (req, res, next) => {
   if(req.body.post === 'to my list'){
@@ -82,18 +94,6 @@ app.post('/home', (req, res, next) => {
         }
       })
     }
-  })
-
-  app.get('/mylist', (req, res, next) => {
-    movies.find({user: req.session.userId})
-    .then(data => {
-      res.send(data)
-      next()
-    })
-    .catch(err => {
-      console.log(err)
-      next()
-    })
   })
 
   app.post('/mylist', (req, res, next) => {
@@ -148,5 +148,14 @@ app.post('/home', (req, res, next) => {
       }
   })
 })
+
+// config for heroku
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) =>{
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 app.listen(port, console.log(`server is live on port ${port}`))
