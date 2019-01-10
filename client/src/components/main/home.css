@@ -39,7 +39,7 @@ li {
 }
 
 .tweetTextStyle {
-  font-family: fantasy;
+  font-family: fantasy, Comic Sans MS;
 }
 
 .tweetpadding {
@@ -85,7 +85,7 @@ button:focus {
 
  .warning {
    display: none;
-   font-family: fantasy;
+   font-family: fantasy, Comic Sans MS;
    color: red
  }
 
