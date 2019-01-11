@@ -34,12 +34,16 @@ iframe {
   text-align: center;
 }
 
+.navbar-toggler:hover {
+  background-color: white
+}
+
 li {
   list-style: none;
 }
 
 .tweetTextStyle {
-  font-family: fantasy, Comic Sans MS;
+  font-family: fantasy, cursive;
 }
 
 .tweetpadding {
@@ -85,7 +89,7 @@ button:focus {
 
  .warning {
    display: none;
-   font-family: fantasy, Comic Sans MS;
+   font-family: fantasy, cursive;
    color: red
  }
 

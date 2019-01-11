@@ -31,7 +31,7 @@ h1 {
 
 .inlineMovieList {
   text-align: center;
-  font-family: fantasy, Comic Sans MS;
+  font-family: fantasy, cursive;
   font-size: 1.5em
 }
 
@@ -45,13 +45,13 @@ h1 {
 }
 
 .modal {
-  font-family: fantasy, Comic Sans MS;
+  font-family: fantasy, cursive;
   font-size: 1.2em
 }
 
 .details {
   display: block;
-  font-family: fantasy, Comic Sans MS;
+  font-family: fantasy, cursive;
 }
 
 @keyframes fShadow {
